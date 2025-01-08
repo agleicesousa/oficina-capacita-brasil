@@ -1,0 +1,11 @@
+{
+  "name": "oficina-capacita-brasil",
+  "version": "1.0.0",
+  "description": "Desafio final do módulo inicial do programa Capacita Brasil",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Agleice Sousa",
+  "license": "MIT"
+}
