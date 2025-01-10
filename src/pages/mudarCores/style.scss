@@ -1,5 +1,90 @@
+// Variáveis de cores e tamanhos
+$bg-color: #f4f4f4;
+$text-color: #333;
+$link-hover: #555;
+$active-link: #000;
+$transition-speed: 0.3s;
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: $bg-color;
+    color: $text-color;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+header {
+    background-color: $bg-color;
+    color: $text-color;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    .logo-section {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+        }
+    }
+
+    .nav-section {
+        ul {
+            display: flex;
+            align-items: center;
+
+            li {
+                margin: 0 15px;
+                position: relative;
+
+                a {
+                    color: $text-color;
+                    font-weight: 500;
+                    font-size: 1rem;
+                    transition: color $transition-speed;
+
+                    &:hover {
+                        color: $link-hover;
+                    }
+
+                    &.active {
+                        color: $active-link;
+                        border-bottom: 2px solid $active-link;
+                    }
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 2px;
+                    background-color: $active-link;
+                    bottom: 0;
+                    left: 0;
+                    transition: width $transition-speed;
+                }
+
+                &:hover::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
 }
