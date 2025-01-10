@@ -1,24 +1,27 @@
-// -------------- Variáveis de cores e tamanhos -----------------------
+// ------------------- Variáveis de cores e tamanhos -----------------------
 
 // Tema claro
-$color-bg: #ffffff;
-$color-text: #000000;
-$color-link-hover: #848484;
-$color-active-link: #9072fc;
-$color-button-bg: #9072fc;
+$color-bg: #f9fafb;
+$color-text: #333333;
+$color-link-hover: #6366f1;
+$color-active-link: #4f46e5;
+$color-button-bg-start: #4f46e5;
+$color-button-bg-end: #6366f1;
 $color-button-text: #ffffff;
-$color-border: #cccccc;
+$color-border: #e5e7eb;
 
 // Tema escuro
-$color-bg-dark: #181818;
-$color-text-dark: #e0e0e0;
-$color-link-hover-dark: #66b2ff;
-$color-active-link-dark: #1e90ff;
-$color-button-bg-dark: #1e90ff;
+$color-bg-dark: #121212;
+$color-text-dark: #f5f5f5;
+$color-link-hover-dark: #985eff;
+$color-active-link-dark: #bb86fc;
+$color-button-bg-dark-start: #bb86fc;
+$color-button-bg-dark-end: #985eff;
 $color-button-text-dark: #ffffff;
-$color-border-dark: #333333;
+$color-border-dark: #272727;
 
 $transition-speed: 0.3s;
+$font-stack: 'Poppins', Arial, sans-serif;
 
 * {
     margin: 0;
@@ -29,7 +32,7 @@ $transition-speed: 0.3s;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: $font-stack;
     transition: background-color 0.5s, color 0.5s;
 }
 
@@ -39,6 +42,7 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
     &.light-theme {
         background-color: $color-bg;
@@ -46,13 +50,14 @@ header {
 
         .nav-section ul li a {
             color: $color-text;
-            
+
             &:hover {
                 color: $color-link-hover;
             }
-            
+
             &.active {
                 color: $color-active-link;
+                font-weight: bold;
                 border-bottom: 2px solid $color-active-link;
             }
         }
@@ -64,11 +69,11 @@ header {
 
         .nav-section ul li a {
             color: $color-text-dark;
-            
+
             &:hover {
                 color: $color-link-hover-dark;
             }
-            
+
             &.active {
                 color: $color-active-link-dark;
                 border-bottom: 2px solid $color-active-link-dark;
@@ -88,7 +93,8 @@ header {
         }
 
         h1 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 600;
         }
     }
 
@@ -109,6 +115,7 @@ header {
                     bottom: 0;
                     left: 0;
                     transition: width $transition-speed;
+                    background-color: currentColor;
                 }
 
                 &:hover::after {
@@ -128,60 +135,64 @@ main {
     height: 80vh;
 
     .title {
-        font-size: 1rem;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 15px;
-        width: 35vh;
+        font-size: 1.2rem;
+        font-weight: 500;
+        text-align: center;
         margin-bottom: 50px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid transparent;
     }
 
     #theme-buttons {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
+        gap: 20px;
 
         .theme-option {
+            height: 35vh;
             display: flex;
             align-items: center;
-            justify-content: space-around;
+            justify-content: space-between;
             flex-direction: column;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform $transition-speed, box-shadow $transition-speed;
+            cursor: pointer;
 
             &:hover {
                 transform: translateY(-5px);
-                box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
             }
 
             .img-theme {
                 display: flex;
-                align-items: center;
-                justify-content: center;
                 flex-direction: column;
-                font-weight: 500;
-                font-size: 1rem;
+                align-items: center;
 
                 img {
-                    width: 220px;
+                    width: 195px;
                     border-radius: 10px;
+                    margin-bottom: 10px;
                 }
 
                 span {
-                    margin: 10px;
+                    font-weight: 500;
+                    font-size: 1rem;
                 }
             }
 
             button {
                 border: none;
-                padding: 10px 20px;
+                padding: 5px 10px;
                 border-radius: 5px;
                 font-weight: bold;
+                font-size: 0.9rem;
                 cursor: pointer;
+                background: linear-gradient(135deg, $color-button-bg-start, $color-button-bg-end);
+                color: $color-button-text;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s, box-shadow 0.3s;
+
                 &:hover {
                     transform: translateY(-5px);
                     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
@@ -192,37 +203,44 @@ main {
 
     &.light-theme {
         background-color: $color-bg;
+
         .title {
             color: $color-text;
-            border-bottom: $color-active-link 3px solid;
+            border-bottom-color: $color-active-link;
         }
+
         .theme-option {
             background-color: $color-bg;
             border: 1px solid $color-border;
-            .img-theme {
+
+            .img-theme span {
                 color: $color-text;
             }
+
             button {
-                color: $color-button-text;
-                background-color: $color-button-bg;
+                background: linear-gradient(135deg, $color-button-bg-start, $color-button-bg-end);
             }
         }
     }
+
     &.dark-theme {
         background-color: $color-bg-dark;
+
         .title {
             color: $color-text-dark;
-            border-bottom: $color-active-link-dark 3px solid;
+            border-bottom-color: $color-active-link-dark;
         }
+
         .theme-option {
             background-color: $color-bg-dark;
             border: 1px solid $color-border-dark;
-            .img-theme {
+
+            .img-theme span {
                 color: $color-text-dark;
             }
+
             button {
-                color: $color-button-text-dark;
-                background-color: $color-button-bg-dark;
+                background: linear-gradient(135deg, $color-button-bg-dark-start, $color-button-bg-dark-end);
             }
         }
     }
@@ -233,13 +251,14 @@ footer {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 
     &.light-theme {
         background-color: $color-bg;
         color: $color-text;
     }
+
     &.dark-theme {
         background-color: $color-bg-dark;
         color: $color-text-dark;
