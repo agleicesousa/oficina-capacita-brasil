@@ -1,11 +1,11 @@
 // -------------- Variáveis de cores e tamanhos -----------------------
-$bg-color: #fff;
-$text-color: #000;
-$link-hover: #848484;
-$active-link: #9072fc;
-$bg-buttom: #9072fc;
-$color-button: #fff;
-$border-color: #ccc;
+$color-bg: #ffffff;
+$color-text: #000000;
+$color-link-hover: #848484;
+$color-active-link: #9072fc;
+$color-button-bg: #9072fc;
+$color-button-text: #ffffff;
+$color-border: #cccccc;
 $transition-speed: 0.3s;
 
 * {
@@ -22,8 +22,8 @@ body {
 }
 
 header {
-    background-color: $bg-color;
-    color: $text-color;
+    background-color: $color-bg;
+    color: $color-text;
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
@@ -43,7 +43,7 @@ header {
 
         h1 {
             font-size: 1.5rem;
-            color: $text-color;
+            color: $color-text;
         }
     }
 
@@ -57,18 +57,18 @@ header {
                 position: relative;
 
                 a {
-                    color: $text-color;
+                    color: $color-text;
                     font-weight: 500;
                     font-size: 1rem;
                     transition: color $transition-speed;
 
                     &:hover {
-                        color: $link-hover;
+                        color: $color-link-hover;
                     }
 
                     &.active {
-                        color: $active-link;
-                        border-bottom: 2px solid $active-link;
+                        color: $color-active-link;
+                        border-bottom: 2px solid $color-active-link;
                     }
                 }
 
@@ -77,7 +77,7 @@ header {
                     position: absolute;
                     width: 0;
                     height: 2px;
-                    background-color: $active-link;
+                    background-color: $color-active-link;
                     bottom: 0;
                     left: 0;
                     transition: width $transition-speed;
@@ -93,7 +93,7 @@ header {
 
 main {
     padding: 15px 20px;
-    background-color: $bg-color;
+    background-color: $color-bg;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,9 +106,9 @@ main {
         justify-content: center;
         margin-bottom: 15px;
         width: 35vh;
-        color: $text-color;
+        color: $color-text;
         margin-bottom: 50px;
-        border-bottom: #9072fc 3px solid;
+        border-bottom: $color-active-link 3px solid;
     }
 
     #theme-buttons {
@@ -123,15 +123,15 @@ main {
             justify-content: space-around;
             flex-direction: column;
             padding: 10px;
-            background-color: $bg-color;
-            border: 1px solid $border-color;
+            background-color: $color-bg;
+            border: 1px solid $color-border;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             transition: transform $transition-speed, box-shadow $transition-speed;
 
             &:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+                transform: translateY(-5px);
+                box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
             }
 
             .img-theme {
@@ -139,7 +139,7 @@ main {
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                color: $text-color;
+                color: $color-text;
                 font-weight: 500;
                 font-size: 1rem;
 
@@ -157,10 +157,10 @@ main {
                 border: none;
                 padding: 10px 20px;
                 border-radius: 5px;
-                color: $color-button;
+                color: $color-button-text;
                 font-weight: bold;
                 cursor: pointer;
-                background-color: $bg-buttom;
+                background-color: $color-button-bg;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
                 &:hover {
@@ -173,5 +173,12 @@ main {
 }
 
 footer {
-    border: 1px solid black;
+    background-color: $color-bg;
+    color: $color-text;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
