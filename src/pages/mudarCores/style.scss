@@ -1,11 +1,12 @@
 // -------------- Variáveis de cores e tamanhos -----------------------
-$bg-color: #f4f4f4;
-$text-color: #333;
-$link-hover: #555;
-$active-link: #000;
+$bg-color: #fff;
+$text-color: #000;
+$link-hover: #848484;
+$active-link: #9072fc;
+$bg-buttom: #9072fc;
+$color-button: #fff;
+$border-color: #ccc;
 $transition-speed: 0.3s;
-
-$main-color: #fff;
 
 * {
     margin: 0;
@@ -92,7 +93,7 @@ header {
 
 main {
     padding: 15px 20px;
-    background-color: $main-color;
+    background-color: $bg-color;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,6 +107,8 @@ main {
         margin-bottom: 15px;
         width: 35vh;
         color: $text-color;
+        margin-bottom: 50px;
+        border-bottom: #9072fc 3px solid;
     }
 
     #theme-buttons {
@@ -121,8 +124,9 @@ main {
             flex-direction: column;
             padding: 10px;
             background-color: $bg-color;
+            border: 1px solid $border-color;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             transition: transform $transition-speed, box-shadow $transition-speed;
 
             &:hover {
@@ -150,7 +154,19 @@ main {
             }
 
             button {
-                border: 1px solid black;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                color: $color-button;
+                font-weight: bold;
+                cursor: pointer;
+                background-color: $bg-buttom;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+                &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+                }
             }
         }
     }
