@@ -42,6 +42,7 @@ header {
 
         h1 {
             font-size: 1.5rem;
+            color: $text-color;
         }
     }
 
@@ -90,39 +91,61 @@ header {
 }
 
 main {
-    border: 1px solid black;
     padding: 15px 20px;
     background-color: $main-color;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    height: 80vh;
 
     .title {
         font-size: 1rem;
         display: flex;
         justify-content: center;
         margin-bottom: 15px;
-        width: 35vh
+        width: 35vh;
+        color: $text-color;
     }
 
     #theme-buttons {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        width: 100%;
 
         .theme-option {
-            border: 1px solid blue;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+            padding: 10px;
+            background-color: $bg-color;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform $transition-speed, box-shadow $transition-speed;
+
+            &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            }
 
             .img-theme {
-                border: 1px solid red;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                color: $text-color;
+                font-weight: 500;
+                font-size: 1rem;
 
                 img {
-                    border: 1px solid green;
+                    width: 220px;
+                    border-radius: 10px;
                 }
 
                 span {
-                    border: 1px solid orange;
+                    margin: 10px;
                 }
             }
 
@@ -131,4 +154,8 @@ main {
             }
         }
     }
+}
+
+footer {
+    border: 1px solid black;
 }
