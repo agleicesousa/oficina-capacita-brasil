@@ -1,4 +1,4 @@
-// Variáveis de cores e tamanhos
+// -------------- Variáveis de cores e tamanhos -----------------------
 $bg-color: #f4f4f4;
 $text-color: #333;
 $link-hover: #555;
@@ -99,7 +99,6 @@ main {
     flex-direction: column;
 
     .title {
-        border: 1px solid green;
         font-size: 1rem;
         display: flex;
         justify-content: center;
@@ -108,10 +107,28 @@ main {
     }
 
     #theme-buttons {
-        border: 1px solid red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         .theme-option {
             border: 1px solid blue;
+
+            .img-theme {
+                border: 1px solid red;
+
+                img {
+                    border: 1px solid green;
+                }
+
+                span {
+                    border: 1px solid orange;
+                }
+            }
+
+            button {
+                border: 1px solid black;
+            }
         }
     }
 }
