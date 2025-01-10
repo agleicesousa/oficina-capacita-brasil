@@ -5,6 +5,8 @@ $link-hover: #555;
 $active-link: #000;
 $transition-speed: 0.3s;
 
+$main-color: #fff;
+
 * {
     margin: 0;
     padding: 0;
@@ -15,8 +17,6 @@ $transition-speed: 0.3s;
 
 body {
     font-family: Arial, sans-serif;
-    background-color: $bg-color;
-    color: $text-color;
     transition: background-color 0.5s, color 0.5s;
 }
 
@@ -85,6 +85,33 @@ header {
                     width: 100%;
                 }
             }
+        }
+    }
+}
+
+main {
+    border: 1px solid black;
+    padding: 15px 20px;
+    background-color: $main-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .title {
+        border: 1px solid green;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+        width: 35vh
+    }
+
+    #theme-buttons {
+        border: 1px solid red;
+
+        .theme-option {
+            border: 1px solid blue;
         }
     }
 }
