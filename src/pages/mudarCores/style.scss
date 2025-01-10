@@ -9,15 +9,14 @@ $color-button-bg: #9072fc;
 $color-button-text: #ffffff;
 $color-border: #cccccc;
 
-//Tema escuro
-$color-bg-dark: #121212;
-$color-text-dark: #ffffff;
-$color-link-hover-dark: #bbbbbb;
-$color-active-link-dark: #6a5acd;
-$color-button-bg-dark: #6a5acd;
+// Tema escuro
+$color-bg-dark: #181818;
+$color-text-dark: #e0e0e0;
+$color-link-hover-dark: #66b2ff;
+$color-active-link-dark: #1e90ff;
+$color-button-bg-dark: #1e90ff;
 $color-button-text-dark: #ffffff;
-$color-border-dark: #444444;
-
+$color-border-dark: #333333;
 
 $transition-speed: 0.3s;
 
@@ -35,13 +34,47 @@ body {
 }
 
 header {
-    background-color: $color-bg;
-    color: $color-text;
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    &.light-theme {
+        background-color: $color-bg;
+        color: $color-text;
+
+        .nav-section ul li a {
+            color: $color-text;
+            
+            &:hover {
+                color: $color-link-hover;
+            }
+            
+            &.active {
+                color: $color-active-link;
+                border-bottom: 2px solid $color-active-link;
+            }
+        }
+    }
+
+    &.dark-theme {
+        background-color: $color-bg-dark;
+        color: $color-text-dark;
+
+        .nav-section ul li a {
+            color: $color-text-dark;
+            
+            &:hover {
+                color: $color-link-hover-dark;
+            }
+            
+            &.active {
+                color: $color-active-link-dark;
+                border-bottom: 2px solid $color-active-link-dark;
+            }
+        }
+    }
 
     .logo-section {
         display: flex;
@@ -56,7 +89,6 @@ header {
 
         h1 {
             font-size: 1.5rem;
-            color: $color-text;
         }
     }
 
@@ -69,28 +101,11 @@ header {
                 margin: 0 15px;
                 position: relative;
 
-                a {
-                    color: $color-text;
-                    font-weight: 500;
-                    font-size: 1rem;
-                    transition: color $transition-speed;
-
-                    &:hover {
-                        color: $color-link-hover;
-                    }
-
-                    &.active {
-                        color: $color-active-link;
-                        border-bottom: 2px solid $color-active-link;
-                    }
-                }
-
                 &::after {
                     content: '';
                     position: absolute;
                     width: 0;
                     height: 2px;
-                    background-color: $color-active-link;
                     bottom: 0;
                     left: 0;
                     transition: width $transition-speed;
@@ -106,7 +121,6 @@ header {
 
 main {
     padding: 15px 20px;
-    background-color: $color-bg;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,9 +133,7 @@ main {
         justify-content: center;
         margin-bottom: 15px;
         width: 35vh;
-        color: $color-text;
         margin-bottom: 50px;
-        border-bottom: $color-active-link 3px solid;
     }
 
     #theme-buttons {
@@ -136,8 +148,6 @@ main {
             justify-content: space-around;
             flex-direction: column;
             padding: 10px;
-            background-color: $color-bg;
-            border: 1px solid $color-border;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             transition: transform $transition-speed, box-shadow $transition-speed;
@@ -152,7 +162,6 @@ main {
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                color: $color-text;
                 font-weight: 500;
                 font-size: 1rem;
 
@@ -170,12 +179,9 @@ main {
                 border: none;
                 padding: 10px 20px;
                 border-radius: 5px;
-                color: $color-button-text;
                 font-weight: bold;
                 cursor: pointer;
-                background-color: $color-button-bg;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
                 &:hover {
                     transform: translateY(-5px);
                     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
@@ -183,15 +189,59 @@ main {
             }
         }
     }
+
+    &.light-theme {
+        background-color: $color-bg;
+        .title {
+            color: $color-text;
+            border-bottom: $color-active-link 3px solid;
+        }
+        .theme-option {
+            background-color: $color-bg;
+            border: 1px solid $color-border;
+            .img-theme {
+                color: $color-text;
+            }
+            button {
+                color: $color-button-text;
+                background-color: $color-button-bg;
+            }
+        }
+    }
+    &.dark-theme {
+        background-color: $color-bg-dark;
+        .title {
+            color: $color-text-dark;
+            border-bottom: $color-active-link-dark 3px solid;
+        }
+        .theme-option {
+            background-color: $color-bg-dark;
+            border: 1px solid $color-border-dark;
+            .img-theme {
+                color: $color-text-dark;
+            }
+            button {
+                color: $color-button-text-dark;
+                background-color: $color-button-bg-dark;
+            }
+        }
+    }
 }
 
 footer {
-    background-color: $color-bg;
-    color: $color-text;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 10px 20px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+    &.light-theme {
+        background-color: $color-bg;
+        color: $color-text;
+    }
+    &.dark-theme {
+        background-color: $color-bg-dark;
+        color: $color-text-dark;
+    }
 }
