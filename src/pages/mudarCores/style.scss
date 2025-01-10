@@ -1,4 +1,6 @@
 // -------------- Variáveis de cores e tamanhos -----------------------
+
+// Tema claro
 $color-bg: #ffffff;
 $color-text: #000000;
 $color-link-hover: #848484;
@@ -6,6 +8,17 @@ $color-active-link: #9072fc;
 $color-button-bg: #9072fc;
 $color-button-text: #ffffff;
 $color-border: #cccccc;
+
+//Tema escuro
+$color-bg-dark: #121212;
+$color-text-dark: #ffffff;
+$color-link-hover-dark: #bbbbbb;
+$color-active-link-dark: #6a5acd;
+$color-button-bg-dark: #6a5acd;
+$color-button-text-dark: #ffffff;
+$color-border-dark: #444444;
+
+
 $transition-speed: 0.3s;
 
 * {
