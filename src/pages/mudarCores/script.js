@@ -9,6 +9,11 @@ function changeTheme(theme) {
     document.querySelector('footer').className = theme;
 }
 
+// Define o tema padrão (Tema Claro) quando a página for carregada
+document.addEventListener('DOMContentLoaded', () => {
+    changeTheme('light-theme');
+});
+
 // Adiciona eventos de clique aos botões de tema
 document.querySelectorAll('button[data-theme]').forEach(button => {
     button.addEventListener('click', () => {
