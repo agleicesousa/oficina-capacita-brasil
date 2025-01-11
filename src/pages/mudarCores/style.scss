@@ -20,6 +20,16 @@ $color-button-bg-dark-end: #985eff;
 $color-button-text-dark: #ffffff;
 $color-border-dark: #272727;
 
+// Tema terra
+$color-bg-land: #f4f4e9;
+$color-text-land: #2e4a1c;
+$color-link-hover-land: #4b8f29;
+$color-active-link-land: #2a6b12;
+$color-button-bg-land-start: #8cbf68;
+$color-button-bg-land-end: #597d3f;
+$color-button-text-land: #ffffff;
+$color-border-land: #a1a992;
+
 $transition-speed: 0.3s;
 $font-stack: 'Poppins', Arial, sans-serif;
 
@@ -77,6 +87,24 @@ header {
             &.active {
                 color: $color-active-link-dark;
                 border-bottom: 2px solid $color-active-link-dark;
+            }
+        }
+    }
+
+    &.land-theme {
+        background-color: $color-bg-land;
+        color: $color-text-land;
+
+        .nav-section ul li a {
+            color: $color-text-land;
+
+            &:hover {
+                color: $color-link-hover-land;
+            }
+
+            &.active {
+                color: $color-active-link-land;
+                border-bottom: 2px solid $color-active-link-land;
             }
         }
     }
@@ -188,8 +216,6 @@ main {
                 font-weight: bold;
                 font-size: 0.9rem;
                 cursor: pointer;
-                background: linear-gradient(135deg, $color-button-bg-start, $color-button-bg-end);
-                color: $color-button-text;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 transition: transform 0.3s, box-shadow 0.3s;
 
@@ -219,6 +245,7 @@ main {
 
             button {
                 background: linear-gradient(135deg, $color-button-bg-start, $color-button-bg-end);
+                color: $color-button-text;
             }
         }
     }
@@ -241,6 +268,30 @@ main {
 
             button {
                 background: linear-gradient(135deg, $color-button-bg-dark-start, $color-button-bg-dark-end);
+                color: $color-button-text-dark;
+            }
+        }
+    }
+
+    &.land-theme {
+        background-color: $color-bg-land;
+
+        .title {
+            color: $color-text-land;
+            border-bottom-color: $color-active-link-land;
+        }
+
+        .theme-option {
+            background-color: $color-bg-land;
+            border: 1px solid $color-border-land;
+
+            .img-theme span {
+                color: $color-text-land;
+            }
+
+            button {
+                background: linear-gradient(135deg, $color-button-bg-land-start, $color-button-bg-land-end);
+                color: $color-button-text-land;
             }
         }
     }
@@ -262,5 +313,10 @@ footer {
     &.dark-theme {
         background-color: $color-bg-dark;
         color: $color-text-dark;
+    }
+
+    &.land-theme {
+        background-color: $color-bg-land;
+        color: $color-text-land;
     }
 }
