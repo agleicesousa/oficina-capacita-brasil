@@ -4,41 +4,56 @@
 $color-bg: #f9fafb;
 $color-text: #333333;
 $color-link-hover: #6366f1;
-$color-active-link: #4f46e5;
+$color-link-active: #4f46e5;
 $color-button-bg-start: #4f46e5;
 $color-button-bg-end: #6366f1;
 $color-button-text: #ffffff;
 $color-border: #e5e7eb;
+$color-focus: #cbd5e1;
 
 // Tema escuro
 $color-bg-dark: #121212;
 $color-text-dark: #f5f5f5;
 $color-link-hover-dark: #985eff;
-$color-active-link-dark: #bb86fc;
+$color-link-active-dark: #bb86fc;
 $color-button-bg-dark-start: #bb86fc;
 $color-button-bg-dark-end: #985eff;
 $color-button-text-dark: #ffffff;
 $color-border-dark: #272727;
+$color-focus-dark: #444444;
 
 // Tema terra
 $color-bg-land: #f4f4e9;
 $color-text-land: #2e4a1c;
 $color-link-hover-land: #4b8f29;
-$color-active-link-land: #2a6b12;
+$color-link-active-land: #2a6b12;
 $color-button-bg-land-start: #8cbf68;
 $color-button-bg-land-end: #597d3f;
 $color-button-text-land: #ffffff;
 $color-border-land: #a1a992;
+$color-focus-land: #d9e0cb;
 
-// Tema Água
-$color-bg-whater: #e0f2fe;
-$color-text-whater: #0c4a6e;
-$color-link-hover-whater: #1d4ed8;
-$color-active-link-whater: #1d4ed8;
-$color-button-bg-whater-start: #1d4ed8;
-$color-button-bg-whater-end: #3b82f6;
-$color-button-text-whater: #ffffff;
-$color-border-whater: #bfdbfe;
+// Tema água
+$color-bg-water: #e0f2fe;
+$color-text-water: #0c4a6e;
+$color-link-hover-water: #1d4ed8;
+$color-link-active-water: #1e40af;
+$color-button-bg-water-start: #1d4ed8;
+$color-button-bg-water-end: #3b82f6;
+$color-button-text-water: #ffffff;
+$color-border-water: #bfdbfe;
+$color-focus-water: #93c5fd;
+
+// Tema fogo
+$color-bg-fire: #fde8e8;
+$color-text-fire: #7f1d1d;
+$color-link-hover-fire: #d62323;
+$color-link-active-fire: #9f1a1a;
+$color-button-bg-fire-start: #dc2626;
+$color-button-bg-fire-end: #f87171;
+$color-button-text-fire: #ffffff;
+$color-border-fire: #fca5a5;
+$color-focus-fire: #feb2b2;
 
 $transition-speed: 0.3s;
 $font-stack: 'Poppins', Arial, sans-serif;
@@ -76,9 +91,9 @@ header {
             }
 
             &.active {
-                color: $color-active-link;
+                color: $color-link-active;
                 font-weight: bold;
-                border-bottom: 2px solid $color-active-link;
+                border-bottom: 2px solid $color-link-active;
             }
         }
     }
@@ -95,8 +110,8 @@ header {
             }
 
             &.active {
-                color: $color-active-link-dark;
-                border-bottom: 2px solid $color-active-link-dark;
+                color: $color-link-active-dark;
+                border-bottom: 2px solid $color-link-active-dark;
             }
         }
     }
@@ -113,26 +128,44 @@ header {
             }
 
             &.active {
-                color: $color-active-link-land;
-                border-bottom: 2px solid $color-active-link-land;
+                color: $color-link-active-land;
+                border-bottom: 2px solid $color-link-active-land;
             }
         }
     }
 
-    &.whater-theme {
-        background-color: $color-bg-whater;
-        color: $color-text-whater;
+    &.water-theme {
+        background-color: $color-bg-water;
+        color: $color-text-water;
 
         .nav-section ul li a {
-            color: $color-text-whater;
+            color: $color-text-water;
 
             &:hover {
-                color: $color-link-hover-whater;
+                color: $color-link-hover-water;
             }
 
             &.active {
-                color: $color-active-link-whater;
-                border-bottom: 2px solid $color-active-link-whater;
+                color: $color-link-active-water;
+                border-bottom: 2px solid $color-link-active-water;
+            }
+        }
+    }
+
+    &.fire-theme {
+        background-color: $color-bg-fire;
+        color: $color-text-fire;
+
+        .nav-section ul li a {
+            color: $color-text-fire;
+
+            &:hover {
+                color: $color-link-hover-fire;
+            }
+
+            &.active {
+                color: $color-link-active-fire;
+                border-bottom: 2px solid $color-link-active-fire;
             }
         }
     }
@@ -260,7 +293,7 @@ main {
 
         .title {
             color: $color-text;
-            border-bottom-color: $color-active-link;
+            border-bottom-color: $color-link-active;
         }
 
         .theme-option {
@@ -283,7 +316,7 @@ main {
 
         .title {
             color: $color-text-dark;
-            border-bottom-color: $color-active-link-dark;
+            border-bottom-color: $color-link-active-dark;
         }
 
         .theme-option {
@@ -306,7 +339,7 @@ main {
 
         .title {
             color: $color-text-land;
-            border-bottom-color: $color-active-link-land;
+            border-bottom-color: $color-link-active-land;
         }
 
         .theme-option {
@@ -324,25 +357,48 @@ main {
         }
     }
 
-    &.whater-theme {
-        background-color: $color-bg-whater;
+    &.water-theme {
+        background-color: $color-bg-water;
 
         .title {
-            color: $color-text-whater;
-            border-bottom-color: $color-active-link-whater;
+            color: $color-text-water;
+            border-bottom-color: $color-link-active-water;
         }
 
         .theme-option {
-            background-color: $color-bg-whater;
-            border: 1px solid $color-border-whater;
+            background-color: $color-bg-water;
+            border: 1px solid $color-border-water;
 
             .img-theme span {
-                color: $color-text-whater;
+                color: $color-text-water;
             }
 
             button {
-                background: linear-gradient(135deg, $color-button-bg-whater-start, $color-button-bg-whater-end);
-                color: $color-button-text-whater;
+                background: linear-gradient(135deg, $color-button-bg-water-start, $color-button-bg-water-end);
+                color: $color-button-text-water;
+            }
+        }
+    }
+
+    &.fire-theme {
+        background-color: $color-bg-fire;
+
+        .title {
+            color: $color-text-fire;
+            border-bottom-color: $color-link-active-fire;
+        }
+
+        .theme-option {
+            background-color: $color-bg-fire;
+            border: 1px solid $color-border-fire;
+
+            .img-theme span {
+                color: $color-text-fire;
+            }
+
+            button {
+                background: linear-gradient(135deg, $color-button-bg-fire-start, $color-button-bg-fire-end);
+                color: $color-button-text-fire;
             }
         }
     }
@@ -371,8 +427,13 @@ footer {
         color: $color-text-land;
     }
 
-    &.whater-theme {
-        background-color: $color-bg-whater;
-        color: $color-text-whater;
+    &.water-theme {
+        background-color: $color-bg-water;
+        color: $color-text-water;
+    }
+
+    &.fire-theme {
+        background-color: $color-bg-fire;
+        color: $color-text-fire;
     }
 }
