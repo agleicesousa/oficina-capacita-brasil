@@ -30,6 +30,16 @@ $color-button-bg-land-end: #597d3f;
 $color-button-text-land: #ffffff;
 $color-border-land: #a1a992;
 
+// Tema Água
+$color-bg-whater: #e0f2fe;
+$color-text-whater: #0c4a6e;
+$color-link-hover-whater: #1d4ed8;
+$color-active-link-whater: #1d4ed8;
+$color-button-bg-whater-start: #1d4ed8;
+$color-button-bg-whater-end: #3b82f6;
+$color-button-text-whater: #ffffff;
+$color-border-whater: #bfdbfe;
+
 $transition-speed: 0.3s;
 $font-stack: 'Poppins', Arial, sans-serif;
 
@@ -105,6 +115,24 @@ header {
             &.active {
                 color: $color-active-link-land;
                 border-bottom: 2px solid $color-active-link-land;
+            }
+        }
+    }
+
+    &.whater-theme {
+        background-color: $color-bg-whater;
+        color: $color-text-whater;
+
+        .nav-section ul li a {
+            color: $color-text-whater;
+
+            &:hover {
+                color: $color-link-hover-whater;
+            }
+
+            &.active {
+                color: $color-active-link-whater;
+                border-bottom: 2px solid $color-active-link-whater;
             }
         }
     }
@@ -295,6 +323,29 @@ main {
             }
         }
     }
+
+    &.whater-theme {
+        background-color: $color-bg-whater;
+
+        .title {
+            color: $color-text-whater;
+            border-bottom-color: $color-active-link-whater;
+        }
+
+        .theme-option {
+            background-color: $color-bg-whater;
+            border: 1px solid $color-border-whater;
+
+            .img-theme span {
+                color: $color-text-whater;
+            }
+
+            button {
+                background: linear-gradient(135deg, $color-button-bg-whater-start, $color-button-bg-whater-end);
+                color: $color-button-text-whater;
+            }
+        }
+    }
 }
 
 footer {
@@ -318,5 +369,10 @@ footer {
     &.land-theme {
         background-color: $color-bg-land;
         color: $color-text-land;
+    }
+
+    &.whater-theme {
+        background-color: $color-bg-whater;
+        color: $color-text-whater;
     }
 }
