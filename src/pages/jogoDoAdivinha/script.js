@@ -18,6 +18,12 @@ function gerarNumeroAleatorio() {
     return Math.floor(Math.random() * 10) + 1;
 }
 
+// Função para exibir mensagens
+function exibirMensagem(texto, cor = 'black') {
+    mensagem.textContent = texto;
+    mensagem.style.color = cor;
+}
+
 // Função para adicionar uma linha no histórico de jogadas
 function adicionarLinhaHistorico(tentativa, numeroEscolhido, resultado) {
     const novaLinha = document.createElement('tr');
@@ -34,8 +40,7 @@ function reiniciarJogo() {
     pontos = 0;
     tentativas = 0;
     numeroComputador = gerarNumeroAleatorio();
-    mensagem.textContent = 'Novo jogo iniciado! Tente adivinhar o número.';
-    mensagem.style.color = 'black';
+    exibirMensagem('Novo jogo iniciado! Tente adivinhar o número.', 'black');
     historicoJogadas.innerHTML = '';
     inputNumero.value = '';
     inputNumero.focus();
@@ -48,8 +53,7 @@ botaoEnviar.addEventListener('click', () => {
 
     // Valida o número inserido
     if (isNaN(numeroEscolhido) || numeroEscolhido < 1 || numeroEscolhido > 10) {
-        mensagem.textContent = 'Por favor, insira um número válido entre 1 e 10.';
-        mensagem.style.color = 'red';
+        exibirMensagem('Por favor, insira um número válido entre 1 e 10.', 'red');
         return;
     }
 
@@ -60,16 +64,15 @@ botaoEnviar.addEventListener('click', () => {
     if (numeroEscolhido === numeroComputador) {
         pontos++;
         resultado = 'Acertou';
-        mensagem.textContent = `Parabéns! Você acertou o número era ${numeroComputador}. Reiniciando o jogo...`;
-        mensagem.style.color = 'green';
+        exibirMensagem(`Parabéns! Você acertou o número era ${numeroComputador}. Reiniciando o jogo...`, 'green');
 
         // Reinicia o jogo após 2 segundos
         setTimeout(reiniciarJogo, 2000);
+        return;
     } else {
         pontos--;
         resultado = 'Errou';
-        mensagem.textContent = 'Você errou! Tente novamente.';
-        mensagem.style.color = 'black';
+        exibirMensagem('Você errou! Tente novamente.', 'black');
     }
 
     // Atualiza o histórico de jogadas
@@ -78,8 +81,14 @@ botaoEnviar.addEventListener('click', () => {
     // Verifica se o jogo acabou por tentativas ou pontos
     if (tentativas >= maxTentativas || pontos <= -maxTentativas) {
         botaoEnviar.disabled = true;
-        mensagem.textContent += ' Fim do jogo!';
-        mensagem.style.color = 'blue';
+        exibirMensagem(
+            `Fim do jogo! O número correto era ${numeroComputador}. Reiniciando o jogo...`,
+            'red'
+        );
+
+        // Reinicia o jogo após 2 segundos
+        setTimeout(reiniciarJogo, 2000);
+        return;
     }
 
     // Limpa o campo de entrada
