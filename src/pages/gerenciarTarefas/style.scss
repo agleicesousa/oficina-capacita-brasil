@@ -24,8 +24,16 @@ $font-stack: 'Poppins', Arial, sans-serif;
     text-decoration: none;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: $font-stack;
+    background-color: $color-bg;
+    color: $color-text;
+    display: flex;
+    flex-direction: column;
     transition: background-color 0.5s, color 0.5s;
 }
 
@@ -34,25 +42,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid $color-border;
+    box-shadow: 0 2px 5px $color-shadow;
     background-color: $color-bg-alt;
-    color: $color-text;
-
-
-    .nav-section ul li a {
-        color: $color-text;
-
-        &:hover {
-            color: $color-link-hover;
-        }
-
-        &.active {
-            color: $color-link-active;
-            font-weight: bold;
-            border-bottom: 2px solid $color-link-active;
-        }
-    }
 
     .logo-section {
         display: flex;
@@ -81,6 +73,13 @@ header {
                 margin: 0 15px;
                 position: relative;
 
+                a {
+                    color: $color-text;
+                    text-decoration: none;
+                    font-weight: 500;
+                    transition: color $transition-speed;
+                }
+
                 &::after {
                     content: '';
                     position: absolute;
@@ -106,7 +105,7 @@ footer {
     align-items: center;
     text-align: center;
     padding: 15px 20px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid $color-border;
     background-color: $color-bg-alt;
     color: $color-text;
 }
