@@ -3,13 +3,26 @@ document.getElementById('ano-atual').textContent = new Date().getFullYear();
 const inputNumero = document.getElementById('input-numero');
 const botaoEnviar = document.getElementById('botao-enviar');
 const mensagem = document.getElementById('mensagem');
+const historicoJogadas = document.getElementById('historico-jogadas');
 
 let pontos = 0;
 let tentativas = 0;
 const maxTentativas = 5;
-
-const gerarNumeroAleatorio = () => Math.floor(Math.random() * 10) + 1;
 let numeroComputador = gerarNumeroAleatorio();
+
+function gerarNumeroAleatorio() {
+    return Math.floor(Math.random() * 10) + 1;
+}
+
+function adicionarLinhaHistorico(tentativa, numeroEscolhido, resultado) {
+    const novaLinha = document.createElement('tr');
+    novaLinha.innerHTML = `
+        <td>${tentativa}</td>
+        <td>${numeroEscolhido}</td>
+        <td>${resultado}</td>
+    `;
+    historicoJogadas.appendChild(novaLinha);
+}
 
 botaoEnviar.addEventListener('click', () => {
     const numeroEscolhido = parseInt(inputNumero.value, 10);
@@ -33,6 +46,8 @@ botaoEnviar.addEventListener('click', () => {
         resultado = 'Errou';
         mensagem.textContent = `Você errou! O número era ${numeroComputador}.`;
     }
+
+    adicionarLinhaHistorico(tentativas, numeroEscolhido, resultado);
 
     if (tentativas >= maxTentativas || pontos >= maxTentativas || pontos <= -maxTentativas) {
         botaoEnviar.disabled = true;
