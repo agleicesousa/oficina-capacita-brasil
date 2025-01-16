@@ -1,5 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+
+// ------------------- Variáveis de cores e tamanhos -----------------------
+
+// Tema claro
+$color-bg: #f9fafb;
+$color-text: #333333;
+$color-link-hover: #6366f1;
+$color-link-active: #4f46e5;
+$color-button-bg-start: #4f46e5;
+$color-button-bg-end: #6366f1;
+$color-button-text: #ffffff;
+$color-border: #e5e7eb;
+$color-focus: #cbd5e1;
+
+// Tema escuro
+$color-bg-dark: #121212;
+$color-text-dark: #f5f5f5;
+$color-link-hover-dark: #985eff;
+$color-link-active-dark: #bb86fc;
+$color-button-bg-dark-start: #bb86fc;
+$color-button-bg-dark-end: #985eff;
+$color-button-text-dark: #ffffff;
+$color-border-dark: #272727;
+$color-focus-dark: #444444;
+
+// Tema terra
+$color-bg-land: #f4f4e9;
+$color-text-land: #2e4a1c;
+$color-link-hover-land: #4b8f29;
+$color-link-active-land: #2a6b12;
+$color-button-bg-land-start: #8cbf68;
+$color-button-bg-land-end: #597d3f;
+$color-button-text-land: #ffffff;
+$color-border-land: #a1a992;
+$color-focus-land: #d9e0cb;
+
+// Tema água
+$color-bg-water: #e0f2fe;
+$color-text-water: #0c4a6e;
+$color-link-hover-water: #1d4ed8;
+$color-link-active-water: #1e40af;
+$color-button-bg-water-start: #1d4ed8;
+$color-button-bg-water-end: #3b82f6;
+$color-button-text-water: #ffffff;
+$color-border-water: #bfdbfe;
+$color-focus-water: #93c5fd;
+
+// Tema fogo
+$color-bg-fire: #fde8e8;
+$color-text-fire: #7f1d1d;
+$color-link-hover-fire: #d62323;
+$color-link-active-fire: #9f1a1a;
+$color-button-bg-fire-start: #dc2626;
+$color-button-bg-fire-end: #f87171;
+$color-button-text-fire: #ffffff;
+$color-border-fire: #fca5a5;
+$color-focus-fire: #feb2b2;
+
+$transition-speed: 0.3s;
+$font-stack: 'Poppins', Arial, sans-serif;
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: $font-stack;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+header {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    &.light-theme {
+        background-color: $color-bg;
+        color: $color-text;
+
+        .nav-section ul li a {
+            color: $color-text;
+
+            &:hover {
+                color: $color-link-hover;
+            }
+
+            &.active {
+                color: $color-link-active;
+                font-weight: bold;
+                border-bottom: 2px solid $color-link-active;
+            }
+        }
+    }
+
+    &.dark-theme {
+        background-color: $color-bg-dark;
+        color: $color-text-dark;
+
+        .nav-section ul li a {
+            color: $color-text-dark;
+
+            &:hover {
+                color: $color-link-hover-dark;
+            }
+
+            &.active {
+                color: $color-link-active-dark;
+                border-bottom: 2px solid $color-link-active-dark;
+            }
+        }
+    }
+
+    &.land-theme {
+        background-color: $color-bg-land;
+        color: $color-text-land;
+
+        .nav-section ul li a {
+            color: $color-text-land;
+
+            &:hover {
+                color: $color-link-hover-land;
+            }
+
+            &.active {
+                color: $color-link-active-land;
+                border-bottom: 2px solid $color-link-active-land;
+            }
+        }
+    }
+
+    &.water-theme {
+        background-color: $color-bg-water;
+        color: $color-text-water;
+
+        .nav-section ul li a {
+            color: $color-text-water;
+
+            &:hover {
+                color: $color-link-hover-water;
+            }
+
+            &.active {
+                color: $color-link-active-water;
+                border-bottom: 2px solid $color-link-active-water;
+            }
+        }
+    }
+
+    &.fire-theme {
+        background-color: $color-bg-fire;
+        color: $color-text-fire;
+
+        .nav-section ul li a {
+            color: $color-text-fire;
+
+            &:hover {
+                color: $color-link-hover-fire;
+            }
+
+            &.active {
+                color: $color-link-active-fire;
+                border-bottom: 2px solid $color-link-active-fire;
+            }
+        }
+    }
+
+    .logo-section {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+    }
+
+    .nav-section {
+        ul {
+            display: flex;
+            align-items: center;
+
+            li {
+                margin: 0 15px;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 2px;
+                    bottom: 0;
+                    left: 0;
+                    transition: width $transition-speed;
+                    background-color: currentColor;
+                }
+
+                &:hover::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+main {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 80vh;
+
+    .title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 50px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid transparent;
+    }
+
+    #theme-buttons {
+        display: flex;
+        gap: 20px;
+
+        .theme-option {
+            height: 35vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform $transition-speed, box-shadow $transition-speed;
+            cursor: pointer;
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .img-theme {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                img {
+                    width: 195px;
+                    border-radius: 10px;
+                    margin-bottom: 10px;
+                }
+
+                span {
+                    font-weight: 500;
+                    font-size: 1rem;
+                }
+            }
+
+            button {
+                border: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-weight: bold;
+                font-size: 0.9rem;
+                cursor: pointer;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s, box-shadow 0.3s;
+
+                &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+                }
+            }
+        }
+    }
+
+    &.light-theme {
+        background-color: $color-bg;
+
+        .title {
+            color: $color-text;
+            border-bottom-color: $color-link-active;
+        }
+
+        .theme-option {
+            background-color: $color-bg;
+            border: 1px solid $color-border;
+
+            .img-theme span {
+                color: $color-text;
+            }
+
+            button {
+                background: linear-gradient(135deg, $color-button-bg-start, $color-button-bg-end);
+                color: $color-button-text;
+            }
+        }
+    }
+
+    &.dark-theme {
+        background-color: $color-bg-dark;
+
+        .title {
+            color: $color-text-dark;
+            border-bottom-color: $color-link-active-dark;
+        }
+
+        .theme-option {
+            background-color: $color-bg-dark;
+            border: 1px solid $color-border-dark;
+
+            .img-theme span {
+                color: $color-text-dark;
+            }
+
+            button {
+                background: linear-gradient(135deg, $color-button-bg-dark-start, $color-button-bg-dark-end);
+                color: $color-button-text-dark;
+            }
+        }
+    }
+
+    &.land-theme {
+        background-color: $color-bg-land;
+
+        .title {
+            color: $color-text-land;
+            border-bottom-color: $color-link-active-land;
+        }
+
+        .theme-option {
+            background-color: $color-bg-land;
+            border: 1px solid $color-border-land;
+
+            .img-theme span {
+                color: $color-text-land;
+            }
+
+            button {
+                background: linear-gradient(135deg, $color-button-bg-land-start, $color-button-bg-land-end);
+                color: $color-button-text-land;
+            }
+        }
+    }
+
+    &.water-theme {
+        background-color: $color-bg-water;
+
+        .title {
+            color: $color-text-water;
+            border-bottom-color: $color-link-active-water;
+        }
+
+        .theme-option {
+            background-color: $color-bg-water;
+            border: 1px solid $color-border-water;
+
+            .img-theme span {
+                color: $color-text-water;
+            }
+
+            button {
+                background: linear-gradient(135deg, $color-button-bg-water-start, $color-button-bg-water-end);
+                color: $color-button-text-water;
+            }
+        }
+    }
+
+    &.fire-theme {
+        background-color: $color-bg-fire;
+
+        .title {
+            color: $color-text-fire;
+            border-bottom-color: $color-link-active-fire;
+        }
+
+        .theme-option {
+            background-color: $color-bg-fire;
+            border: 1px solid $color-border-fire;
+
+            .img-theme span {
+                color: $color-text-fire;
+            }
+
+            button {
+                background: linear-gradient(135deg, $color-button-bg-fire-start, $color-button-bg-fire-end);
+                color: $color-button-text-fire;
+            }
+        }
+    }
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 12px 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+    &.light-theme {
+        background-color: $color-bg;
+        color: $color-text;
+    }
+
+    &.dark-theme {
+        background-color: $color-bg-dark;
+        color: $color-text-dark;
+    }
+
+    &.land-theme {
+        background-color: $color-bg-land;
+        color: $color-text-land;
+    }
+
+    &.water-theme {
+        background-color: $color-bg-water;
+        color: $color-text-water;
+    }
+
+    &.fire-theme {
+        background-color: $color-bg-fire;
+        color: $color-text-fire;
+    }
 }

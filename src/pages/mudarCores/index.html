@@ -4,9 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Mudar Cores</title>
+    <title>Mudar de Cores</title>
 </head>
 <body>
-    <h1>Mudar cores</h1>
+    <header>
+        <section class="logo-section">
+            <img src="../../assets/logo.png" alt="Logo">
+            <h1>Mudar de Cores</h1>
+        </section>
+        <section class="nav-section">
+            <nav>
+                <ul>
+                    <li><a href="../../../index.html">Home</a></li>
+                    <li><a class="active" href="../mudarCores/index.html">Mudar as Cores</a></li>
+                    <li><a href="../caixaEletronico/index.html">Caixa Eletrônico</a></li>
+                    <li><a href="../gerenciarTarefas/index.html">Gerenciador de Tarefas</a></li>
+                    <li><a href="../jogoDoAdivinha/index.html">Jogo do Adivinha</a></li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <main>
+        <section class="title">
+            <h2>Escolha um tema:</h2>
+        </section>
+        <section id="theme-buttons">
+            <section class="theme-option">
+                <div class="img-theme">
+                    <img src="../../assets/theme-01.png" alt="Tema Claro">
+                    <span>Tema Claro</span>
+                </div>
+                <button data-theme="light-theme">Escolher tema</button>
+            </section>
+            <section class="theme-option">
+                <div class="img-theme">
+                    <img src="../../assets/theme-02.png" alt="Tema Escuro">
+                    <span>Tema Escuro</span>
+                </div>
+                <button data-theme="dark-theme">Escolher tema</button>
+            </section>
+            <section class="theme-option">
+                <div class="img-theme">
+                    <img src="../../assets/theme-03.png" alt="Tema Terra">
+                    <span>Tema Terra</span>
+                </div>
+                <button data-theme="land-theme">Escolher tema</button>
+            </section>
+            <section class="theme-option">
+                <div class="img-theme">
+                    <img src="../../assets/theme-04.png" alt="Tema Água">
+                    <span>Tema Água</span>
+                </div>
+                <button data-theme="water-theme">Escolher tema</button>
+            </section>
+            <section class="theme-option">
+                <div class="img-theme">
+                    <img src="../../assets/theme-05.png" alt="Tema Fogo">
+                    <span>Tema Fogo</span>
+                </div>
+                <button data-theme="fire-theme">Escolher tema</button>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <p>Todos os direitos reservados, &copy; <span id="ano-atual"></span> Agleice Sousa.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
