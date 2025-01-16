@@ -3,10 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <linkm rel="stylesheet" href="style.css">
-    <title>Gerenciador de tarefas</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Gerenciador de Tarefas</title>
 </head>
 <body>
-    <h1>Gerenciador de tarefas</h1>
+    <header>
+        <section class="logo-section">
+            <img src="../../assets/logo.png" alt="Logo">
+            <h1>Gerenciador de Tarefas</h1>
+        </section>
+        <section class="nav-section">
+            <nav>
+                <ul>
+                    <li><a href="../../../index.html">Home</a></li>
+                    <li><a href="../mudarCores/index.html">Mudar as Cores</a></li>
+                    <li><a href="../caixaEletronico/index.html">Caixa Eletrônico</a></li>
+                    <li><a class="active" href="../gerenciarTarefas/index.html">Gerenciador de Tarefas</a></li>
+                    <li><a href="../jogoDoAdivinha/index.html">Jogo do Adivinha</a></li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <main>
+        <section class="task-manager">
+            <div class="task-input">
+                <input type="text" id="task-input" placeholder="Digite sua tarefa..." maxlength="100">
+                <button id="add-task-btn">Adicionar Tarefa</button>
+            </div>
+            <ul id="task-list"></ul>
+        </section>
+    </main>
+    <footer>
+        <p>Todos os direitos reservados, &copy; <span id="ano-atual"></span> Agleice Sousa.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
