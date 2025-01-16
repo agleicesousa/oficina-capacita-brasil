@@ -33,7 +33,15 @@ botaoEnviar.addEventListener('click', () => {
         resultado = 'Errou';
         mensagem.textContent = `Você errou! O número era ${numeroComputador}.`;
     }
-    
+
+    if (tentativas >= maxTentativas || pontos >= maxTentativas || pontos <= -maxTentativas) {
+        botaoEnviar.disabled = true;
+        mensagem.textContent += ' Fim do jogo!';
+        mensagem.style.color = 'blue';
+    } else {
+        mensagem.style.color = 'black';
+    }
+
     inputNumero.value = '';
     inputNumero.focus();
 });
