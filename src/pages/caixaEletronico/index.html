@@ -32,6 +32,19 @@
             <button onclick="login()">Entrar</button>
             <p id="login-message"></p>
         </section>
+
+        <section id="atm-screen">
+            <div id="balance-display">Saldo: R$ <span id="balance">0.00</span></div>
+            <input type="number" id="amount" placeholder="Digite o valor">
+            
+            <button onclick="deposit()">Depositar</button>
+            <button onclick="withdraw()">Sacar</button>
+            <button onclick="checkBalance()">Consultar Saldo</button>
+            <button onclick="showHistory()">Ver Histórico</button>
+            <button onclick="logout()">Sair</button>
+
+            <p id="message"></p>
+        </section>
     </main>
     <footer>
         <p>Todos os direitos reservados, &copy; <span id="ano-atual"></span> Agleice Sousa.</p>
