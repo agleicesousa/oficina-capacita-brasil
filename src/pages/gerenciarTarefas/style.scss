@@ -140,6 +140,21 @@ main {
                     border-color: $color-focus;
                 }
             }
+
+            button {
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                background: linear-gradient(to right, $color-button-bg-start, $color-button-bg-end);
+                color: $color-button-text;
+                cursor: pointer;
+                font-size: 1rem;
+                transition: background 0.3s;
+
+                &:hover {
+                    background: linear-gradient(to right, lighten($color-button-bg-start, 10%), lighten($color-button-bg-end, 10%));
+                }
+            }
         }
     }
 }
