@@ -111,6 +111,39 @@ header {
     }
 }
 
+main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    .task-manager {
+        width: 100%;
+        max-width: 600px;
+
+        .task-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+
+            input {
+                flex: 1;
+                padding: 10px;
+                border: 1px solid $color-border;
+                border-radius: 5px;
+                font-size: 1rem;
+                outline: none;
+                transition: border-color 0.3s;
+
+                &:focus {
+                    border-color: $color-focus;
+                }
+            }
+        }
+    }
+}
+
 footer {
     display: flex;
     justify-content: center;
