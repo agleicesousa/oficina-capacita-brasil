@@ -9,6 +9,8 @@ $color-button-bg-end: #60a5fa;
 $color-button-text: #ffffff;
 $color-border: #d1d5db;
 $color-focus: #93c5fd;
+$color-delete-bg: #ef4444;
+$color-complete-bg: #10b981;
 
 $color-bg-alt: #f3f4f6;
 $color-shadow: rgba(0, 0, 0, 0.1);
@@ -93,6 +95,16 @@ header {
 
                 &:hover::after {
                     width: 100%;
+                }
+
+                a:hover {
+                    color: $color-link-hover;
+                }
+
+                &.active a {
+                    color: $color-link-active;
+                    font-weight: bold;
+                    border-bottom: 2px solid $color-link-active;
                 }
             }
         }
