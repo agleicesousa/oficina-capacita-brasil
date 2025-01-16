@@ -29,6 +29,19 @@ function adicionarLinhaHistorico(tentativa, numeroEscolhido, resultado) {
     historicoJogadas.appendChild(novaLinha);
 }
 
+// Função para reiniciar o jogo
+function reiniciarJogo() {
+    pontos = 0;
+    tentativas = 0;
+    numeroComputador = gerarNumeroAleatorio();
+    mensagem.textContent = 'Novo jogo iniciado! Tente adivinhar o número.';
+    mensagem.style.color = 'black';
+    historicoJogadas.innerHTML = '';
+    inputNumero.value = '';
+    inputNumero.focus();
+    botaoEnviar.disabled = false;
+}
+
 // Evento de clique no botão "Enviar"
 botaoEnviar.addEventListener('click', () => {
     const numeroEscolhido = parseInt(inputNumero.value, 10);
@@ -47,24 +60,26 @@ botaoEnviar.addEventListener('click', () => {
     if (numeroEscolhido === numeroComputador) {
         pontos++;
         resultado = 'Acertou';
-        mensagem.textContent = `Parabéns! Você acertou! O número era ${numeroComputador}.`;
-        numeroComputador = gerarNumeroAleatorio();
+        mensagem.textContent = `Parabéns! Você acertou o número era ${numeroComputador}. Reiniciando o jogo...`;
+        mensagem.style.color = 'green';
+
+        // Reinicia o jogo após 2 segundos
+        setTimeout(reiniciarJogo, 2000);
     } else {
         pontos--;
         resultado = 'Errou';
-        mensagem.textContent = `Você errou! O número era ${numeroComputador}.`;
+        mensagem.textContent = 'Você errou! Tente novamente.';
+        mensagem.style.color = 'black';
     }
 
     // Atualiza o histórico de jogadas
     adicionarLinhaHistorico(tentativas, numeroEscolhido, resultado);
 
-    // Verifica se o jogo acabou
-    if (tentativas >= maxTentativas || pontos >= maxTentativas || pontos <= -maxTentativas) {
+    // Verifica se o jogo acabou por tentativas ou pontos
+    if (tentativas >= maxTentativas || pontos <= -maxTentativas) {
         botaoEnviar.disabled = true;
         mensagem.textContent += ' Fim do jogo!';
         mensagem.style.color = 'blue';
-    } else {
-        mensagem.style.color = 'black';
     }
 
     // Limpa o campo de entrada
