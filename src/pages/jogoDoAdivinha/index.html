@@ -24,24 +24,26 @@
             </nav>
         </section>
     </header>
-    <main class="container">
-        <section>
-            <h2>Instruções do Jogo:</h2>
-            <ul>
-                <li>Você deve adivinhar o número que o computador está pensando.</li>
-                <li>Digite um número entre 1 e 10 e clique em "Enviar".</li>
-                <li>Acertando, você ganha um ponto. Errando, perde um ponto.</li>
-                <li>O jogo termina após 5 tentativas ou 5 pontos.</li>
-            </ul>
+    <main>
+        <section class="game-section">
+            <section class="instructions">
+                <h2>Instruções do Jogo:</h2>
+                <ul>
+                    <li>Você deve adivinhar o número que o computador está pensando.</li>
+                    <li>Digite um número entre 1 e 10 e clique em "Enviar".</li>
+                    <li>Acertando, você ganha um ponto. Errando, perde um ponto.</li>
+                    <li>O jogo termina após 5 tentativas ou 5 pontos.</li>
+                </ul>
+            </section>
+            <section class="game">
+                <h2>Jogo:</h2>
+                <label for="input-numero">Digite um número:</label>
+                <input type="number" id="input-numero" min="1" max="10">
+                <button id="botao-enviar">Enviar</button>
+                <p id="mensagem"></p>
+            </section>
         </section>
-        <section>
-            <h2>Jogo:</h2>
-            <label for="input-numero">Digite um número:</label>
-            <input type="number" id="input-numero" min="1" max="10">
-            <button id="botao-enviar">Enviar</button>
-            <p id="mensagem"></p>
-        </section>
-        <section>
+        <section class="history">
             <h3>Histórico de Jogadas:</h3>
             <table>
                 <thead>
