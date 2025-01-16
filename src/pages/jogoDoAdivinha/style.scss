@@ -114,6 +114,7 @@ main {
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+
         
         .instructions {
             display: flex;
@@ -136,7 +137,7 @@ main {
         .game {
             border: solid 1px green;
             height: 40%;
-            width: 92%;
+            width: 80%;
             padding: 15px 20px;
             display: flex;
             flex-direction: column;
@@ -185,10 +186,61 @@ main {
     }
 
     .history-section {
-        border: solid 1px green;
+        width: 40%;
         height: 80%;
-        width: 50%;
-    }
+        padding: 15px 20px;
+        border-radius: 15px;
+        background-color: $color-bg-alt;
+        border: 1px solid $color-border;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: $color-text;
+        }
+    
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            color: $color-text;
+            text-align: center;
+    
+            thead {
+                background-color: $color-bg;
+                border-bottom: 2px solid $color-border;
+    
+                th {
+                    padding: 10px 15px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+            }
+    
+            tbody {
+                tr {
+                    &:nth-child(even) {
+                        background-color: $color-bg-alt;
+                    }
+    
+                    &:hover {
+                        background-color: $color-focus;
+                    }
+                }
+    
+                td {
+                    padding: 10px 15px;
+                    border-bottom: 1px solid $color-border;
+                }
+            }
+        }
+    }    
 }   
 
 footer {
@@ -196,7 +248,7 @@ footer {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 12px 20px;
+    padding: 15px 20px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     background-color: $color-bg-alt;
     color: $color-text;
