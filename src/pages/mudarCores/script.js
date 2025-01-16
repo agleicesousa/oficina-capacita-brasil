@@ -15,3 +15,9 @@ document.querySelectorAll('button[data-theme]').forEach(button => {
         changeTheme(theme);
     });
 });
+
+// Define o tema claro como padrão ao carregar a página
+window.onload = () => {
+    const defaultTheme = 'light-theme';
+    changeTheme(defaultTheme);
+};

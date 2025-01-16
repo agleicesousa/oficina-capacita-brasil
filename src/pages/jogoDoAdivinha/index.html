@@ -4,9 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Adivinha</title>
+    <title>Jogo do Adivinha</title>
 </head>
 <body>
-    <h1>adivinha</h1>
+    <header>
+        <section class="logo-section">
+            <img src="../../assets/logo.png" alt="Logo">
+            <h1>Jogo do Adivinha</h1>
+        </section>
+        <section class="nav-section">
+            <nav>
+                <ul>
+                    <li><a href="../../../index.html">Home</a></li>
+                    <li><a href="../mudarCores/index.html">Mudar as Cores</a></li>
+                    <li><a href="../caixaEletronico/index.html">Caixa Eletrônico</a></li>
+                    <li><a href="../gerenciarTarefas/index.html">Gerenciador de Tarefas</a></li>
+                    <li><a class="active" href="../jogoDoAdivinha/index.html">Jogo do Adivinha</a></li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <main>
+        <section class="game-section">
+            <section class="instructions">
+                <h2>Instruções do Jogo:</h2>
+                <ul>
+                    <li>Você deve adivinhar o número que o computador está pensando.</li>
+                    <li>Digite um número entre 1 e 10 e clique em "Enviar".</li>
+                    <li>Acertando, você ganha um ponto. Errando, perde um ponto.</li>
+                    <li>O jogo termina após 5 tentativas ou 5 pontos.</li>
+                </ul>
+            </section>
+            <section class="game">
+                <h2>Jogo:</h2>
+                <div class="input-section">
+                    <label for="input-number">Digite um número:</label>
+                    <input type="number" id="input-numero" min="1" max="10">
+                </div>
+                <button id="botao-enviar">Enviar</button>
+                <p id="mensagem"></p>
+            </section>
+        </section>
+        <section class="history-section">
+            <h3>Histórico de Jogadas:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tentativa</th>
+                        <th>Número Escolhido</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody id="historico-jogadas">
+                    <!-- Linhas do histórico serão adicionadas dinamicamente -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>Todos os direitos reservados, &copy; <span id="ano-atual"></span> Agleice Sousa.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
