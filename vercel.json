@@ -4,5 +4,8 @@
             "src": "**/*.scss",
             "use": "@vercel/node"
         }
-    ]
+    ],
+    "scripts": {
+        "build": "npm run build-css"
+    }
 }
