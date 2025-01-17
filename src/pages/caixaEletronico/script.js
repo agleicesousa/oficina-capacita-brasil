@@ -51,3 +51,24 @@ function toggleVisibility(elementId, isVisible) {
 function updateBalanceDisplay() {
     document.getElementById("balance").textContent = balance.toFixed(2);
 }
+
+function withdraw() {
+    const amountInput = document.getElementById("amount");
+    const amount = parseFloat(amountInput.value);
+    const message = document.getElementById("message");
+
+    if (isNaN(amount) || amount <= 0) {
+        message.textContent = "Valor inválido. Tente novamente.";
+    } else if (amount > balance) {
+        message.textContent = "Saldo insuficiente para realizar o saque.";
+    } else {
+        balance -= amount;
+        transactionHistory.push(`Saque: R$ ${amount.toFixed(2)}`);
+        message.textContent = `Saque de R$ ${amount.toLocaleString(
+            "pt-BR",
+            { style: "currency", currency: "BRL" }
+        )} realizado com sucesso.`;
+        updateBalanceDisplay();
+    }
+    amountInput.value = "";
+}
