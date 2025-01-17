@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;1,500;1,600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+header {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d1d5db;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+header .nav-section ul li a {
+  color: #1f2937;
+}
+header .nav-section ul li a:hover {
+  color: #3b82f6;
+}
+header .nav-section ul li a.active {
+  color: #2563eb;
+  font-weight: bold;
+  border-bottom: 2px solid #2563eb;
+}
+header .logo-section {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+header .logo-section img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+header .logo-section h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+header .nav-section ul {
+  display: flex;
+  align-items: center;
+}
+header .nav-section ul li {
+  margin: 0 15px;
+  position: relative;
+}
+header .nav-section ul li::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s;
+  background-color: currentColor;
+}
+header .nav-section ul li:hover::after {
+  width: 100%;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 79.5vh;
+  padding: 15px 20px;
+  background-color: #ffffff;
+}
+main #login-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 50%;
+  width: 30%;
+  padding: 15px 20px;
+  border-radius: 15px;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+main #login-screen label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+main #login-screen input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1f2937;
+  transition: border-color 0.3s;
+}
+main #login-screen button {
+  border: none;
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+main #login-screen button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  background-color: #60a5fa;
+}
+main #atm-screen {
+  height: 100%;
+  width: 100%;
+}
+main #atm-screen .atm-content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+main #atm-screen .atm-content #balance-section {
+  width: 45%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 15px 20px;
+  border-radius: 15px;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+main #atm-screen .atm-content #balance-section #balance-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+}
+main #atm-screen .atm-content #balance-section #balance-display h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+main #atm-screen .atm-content #balance-section #balance-display span {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #1f2937;
+}
+main #atm-screen .atm-content #balance-section input {
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1f2937;
+  outline: none;
+  transition: border-color 0.3s;
+}
+main #atm-screen .atm-content #balance-section input:focus {
+  border-color: #93c5fd;
+}
+main #atm-screen .atm-content #balance-section input::placeholder {
+  color: #d1d5db;
+}
+main #atm-screen .atm-content #balance-section input::-webkit-outer-spin-button, main #atm-screen .atm-content #balance-section input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+main #atm-screen .atm-content #balance-section .buttons {
+  display: flex;
+  gap: 10px;
+}
+main #atm-screen .atm-content #balance-section .buttons button {
+  border: none;
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+main #atm-screen .atm-content #balance-section .buttons button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  background-color: #60a5fa;
+}
+main #atm-screen .atm-content #transaction-history-section {
+  width: 45%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 20px;
+}
+main #atm-screen .atm-content #transaction-history-section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+main #atm-screen .atm-content #transaction-history-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+main #atm-screen .atm-content #transaction-history-section table th, main #atm-screen .atm-content #transaction-history-section table td {
+  padding: 10px;
+  text-align: center;
+}
+main #atm-screen .atm-content #transaction-history-section table th {
+  background-color: #f4f4f4;
+}
+main #atm-screen .atm-content #transaction-history-section table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+main #atm-screen .atm-content #transaction-history-section table td {
+  color: #1f2937;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #f3f4f6;
+  border-top: 1px solid #d1d5db;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #1f2937;
+}

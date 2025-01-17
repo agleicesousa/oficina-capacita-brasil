@@ -21,7 +21,6 @@ jspm_packages/
 .sass-cache/
 
 # Generated CSS files
-*.css
 *.css.map
 
 # Compiled output
