@@ -3,6 +3,10 @@
         {
             "src": "src/**/*.scss",
             "use": "@vercel/static-build"
+        },
+        {
+            "src": "package.json",
+            "use": "@vercel/static-build"
         }
     ],
     "routes": [
