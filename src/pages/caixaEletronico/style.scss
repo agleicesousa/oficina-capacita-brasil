@@ -1,17 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;1,500;1,600&display=swap');
 
+// Core colors
 $color-bg: #ffffff;
 $color-text: #1f2937;
+$color-border: #d1d5db;
+$color-shadow: rgba(0, 0, 0, 0.1);
+
+// Accent colors
 $color-link-hover: #3b82f6;
 $color-link-active: #2563eb;
 $color-button-bg-start: #2563eb;
 $color-button-bg-end: #60a5fa;
 $color-button-text: #ffffff;
-$color-border: #d1d5db;
 $color-focus: #93c5fd;
-
 $color-bg-alt: #f3f4f6;
-$color-shadow: rgba(0, 0, 0, 0.1);
 
 $transition-speed: 0.3s;
 $font-stack: 'Poppins', Arial, sans-serif;
@@ -34,11 +36,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid $color-border;
+    box-shadow: 0 2px 5px $color-shadow;
     background-color: $color-bg-alt;
     color: $color-text;
-
 
     .nav-section ul li a {
         color: $color-text;
@@ -100,13 +101,213 @@ header {
     }
 }
 
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 79.5vh;
+    padding: 15px 20px;
+    background-color: $color-bg;
+
+    #login-screen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 50%;
+        width: 30%;
+        padding: 15px 20px;
+        border-radius: 15px;
+        background-color: $color-bg-alt;
+        border: 1px solid $color-border;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+
+        label {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        input {
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid $color-border;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+            margin-bottom: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: $color-text;
+            transition: border-color $transition-speed;
+        }
+
+        button {
+            border: none;
+            background-color: $color-button-bg-start;
+            color: $color-button-text;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+                background-color: $color-button-bg-end;
+            }
+        }
+    }
+
+    #atm-screen {
+        height: 100%;
+        width: 100%;
+
+        .atm-content {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+
+            #balance-section {
+                width: 45%;
+                height: 90%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                padding: 15px 20px;
+                border-radius: 15px;
+                background-color: $color-bg-alt;
+                border: 1px solid $color-border;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+
+                #balance-display {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 15px;
+
+                    h2 {
+                        font-size: 2rem;
+                        font-weight: 700;
+                        color: $color-text;
+                        margin-bottom: 10px;
+                    }
+
+                    span {
+                        font-size: 1.5rem;
+                        font-weight: 500;
+                        color: $color-text;
+                    }
+                }
+
+                input {
+                    padding: 1rem;
+                    border-radius: 5px;
+                    border: 1px solid $color-border;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+                    font-size: 1rem;
+                    font-weight: 500;
+                    color: $color-text;
+                    outline: none;
+                    transition: border-color $transition-speed;
+
+                    &:focus {
+                        border-color: $color-focus;
+                    }
+                    
+                    &::placeholder {
+                        color: $color-border;
+                    }
+
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+                }
+
+                .buttons {
+                    display: flex;
+                    gap: 10px;
+
+                    button {
+                        border: none;
+                        background-color: $color-button-bg-start;
+                        color: $color-button-text;
+                        padding: 1rem 2rem;
+                        border-radius: 5px;
+                        font-weight: bold;
+                        font-size: 1rem;
+                        cursor: pointer;
+                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                        transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    
+                        &:hover {
+                            transform: translateY(-5px);
+                            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+                            background-color: $color-button-bg-end;
+                        }
+                    }
+                }
+            }
+
+            #transaction-history-section {
+                width: 45%;
+                height: 90%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 15px 20px;
+
+                h2 {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    color: $color-text;
+                    margin-bottom: 10px;
+                }
+
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+
+                    th, td {
+                        padding: 10px;
+                        text-align: center;
+                    }
+
+                    th {
+                        background-color: #f4f4f4;
+                    }
+
+                    tr:nth-child(even) {
+                        background-color: #f9f9f9;
+                    }
+
+                    td {
+                        color: $color-text;
+                    }
+                }
+            }
+        }
+    }
+}
+
 footer {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 15px 20px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid $color-border;
     background-color: $color-bg-alt;
     color: $color-text;
 }
