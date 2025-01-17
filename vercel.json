@@ -1,7 +1,7 @@
 {
     "builds": [
         {
-            "src": "src/pages/**/*.scss",
+            "src": "**/*.scss",
             "use": "@vercel/node"
         }
     ],

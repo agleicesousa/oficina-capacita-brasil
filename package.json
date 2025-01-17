@@ -4,8 +4,8 @@
   "description": "Desafio final do módulo inicial do programa Capacita Brasil",
   "main": "index.js",
   "scripts": {
-    "build-css": "sass src/pages/:src/pages/",
-    "watch-css": "npm run build-css && sass --watch src/pages/:src/pages/",
+    "build-css": "sass .:. src/:src/",
+    "watch-css": "npm run build-css && sass --watch .:. src/:src/",
     "build": "npm run build-css"
 },
   "author": "Agleice Sousa",
