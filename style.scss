@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-$color-bg: #f0f4f8;
+$color-bg: #ffffff;
 $color-text: #1f2937;
 $color-link-hover: #3b82f6;
 $color-link-active: #2563eb;
@@ -53,9 +53,14 @@ header {
     }
 
     .social-links {
+        width: 35%;
+
         ul {
             display: flex;
             gap: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
             li {
                 a {
@@ -80,6 +85,65 @@ header {
     }
 }
 
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+
+    .intro,
+    .projects {
+        margin-bottom: 30px;
+        text-align: center;
+        animation: fadeIn 1s ease-in;
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+
+            li {
+                background-color: $color-bg-alt;
+                padding: 15px;
+                border-radius: 8px;
+                transition: transform $transition-speed;
+                text-align: center;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+                &:hover {
+                    transform: translateY(-5px);
+                }
+
+                a {
+                    color: $color-link-active;
+                    text-decoration: none;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    transition: color $transition-speed;
+
+                    &:hover {
+                        color: $color-link-hover;
+                    }
+                }
+            }
+        }
+    }
+}
+
 footer {
     display: flex;
     justify-content: center;
@@ -87,7 +151,9 @@ footer {
     padding: 15px 20px;
     background-color: $color-bg-alt;
     border-top: 1px solid $color-border;
+    font-weight: bold;
     font-size: 0.9rem;
+    color: $color-text;
 }
 
 @keyframes fadeIn {
