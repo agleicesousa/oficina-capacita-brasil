@@ -163,6 +163,31 @@ main {
             }
         }
     }
+
+    #atm-screen {
+        height: 100%;
+        width: 100%;
+
+        .atm-content {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+
+            #balance-section {
+                border: solid 1px red;
+                width: 45%;
+                height: 90%;
+            }
+
+            #transaction-history-section {
+                border: solid 1px blue;
+                width: 45%;
+                height: 90%;
+            }
+        }
+    }
 }
 
 footer {

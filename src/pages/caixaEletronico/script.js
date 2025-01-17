@@ -82,9 +82,6 @@ function showHistory() {
                 ${transaction.type === 'deposit' ? 'Depósito' : 'Saque'}: ${formatCurrency(transaction.value)}
             </li>`)
         .join("");
-
-    historyList.innerHTML += `<li style="color:black;">Saldo Atual: ${formatCurrency(balance)}</li>`;
-    historySection.style.display = "block";
 }
 
 function formatCurrency(value) {
