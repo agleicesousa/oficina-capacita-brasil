@@ -37,14 +37,13 @@
             <div class="atm-content">
                 <section id="balance-section">
                     <div id="balance-display">
-                        <h2>saldo:</h2>
+                        <h2>Saldo:</h2>
                         <span id="balance">R$ 0,00</span>
                     </div>
-                    <input type="number" id="amount" placeholder="Digite o valor" />
+                    <input type="text" id="amount" placeholder="Digite o valor" oninput="formatInputValue(this)" />
                     <div class="buttons">
                         <button onclick="deposit()">Depositar</button>
                         <button onclick="withdraw()">Sacar</button>
-                        <button onclick="showHistory()">Ver Histórico</button>
                         <button onclick="logout()">Sair</button>
                     </div>
                     <p id="message"></p>
@@ -52,7 +51,16 @@
 
                 <section id="transaction-history-section">
                     <h2>Histórico de Transações</h2>
-                    <ul id="history-list"></ul>
+                    <table id="history-table">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Tipo</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-list"></tbody>
+                    </table>
                 </section>
             </div>
         </section>
