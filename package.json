@@ -4,8 +4,13 @@
   "description": "Desafio final do módulo inicial do programa Capacita Brasil",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "build-css": "sass src/pages/:src/pages/",
+    "watch-css": "npm run build-css && sass --watch src/pages/:src/pages/",
+    "build": "npm run build-css"
+},
   "author": "Agleice Sousa",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.83.4"
+  }
 }
