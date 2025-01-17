@@ -7,6 +7,54 @@
     <title>Página Inicial</title>
 </head>
 <body>
-    <h1>Inicio</h1>
+    <header>
+        <div class="logo-section">
+            <img src="./src/assets/logo.png" alt="Logo do site" />
+            <h1>Página Inicial</h1>
+        </div>
+        <nav class="social-links">
+            <ul>
+                <li>
+                    <a href="https://www.linkedin.com/in/agleice-sousa/" target="_blank" rel="noopener noreferrer">
+                        <img src="./src/assets/linkedin.png" alt="Ícone do LinkedIn" />
+                        LinkedIn
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/agleiceSousa" target="_blank" rel="noopener noreferrer">
+                        <img src="./src/assets/github.png" alt="Ícone do GitHub" />
+                        GitHub
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/agleicesousa/oficina-capacita-brasil" target="_blank" rel="noopener noreferrer">
+                        <img src="./src/assets/link.png" alt="Ícone de repositório" />
+                        Repositório do site
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Bem-vindo ao meu site!</h2>
+            <p>Este site foi desenvolvido como parte do desafio final do módulo inicial do programa Capacita Brasil.</p>
+        </section>
+        <section class="projects">
+            <h2>Projetos:</h2>
+            <ul>
+                <li><a href="./src/pages/mudarCores/index.html">Mudar as Cores</a></li>
+                <li><a href="./src/pages/caixaEletronico/index.html">Caixa Eletrônico</a></li>
+                <li><a href="./src/pages/gerenciarTarefas/index.html">Gerenciador de Tarefas</a></li>
+                <li><a href="./src/pages/jogoDoAdivinha/">Jogo do Adivinha</a></li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span id="ano-atual"></span> Agleice Sousa. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        document.getElementById('ano-atual').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
