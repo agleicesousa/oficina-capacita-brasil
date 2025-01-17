@@ -1,19 +1,34 @@
-// Atualiza o ano atual no rodapé
 document.getElementById('ano-atual').textContent = new Date().getFullYear();
 
 let balance = 0;
 let transactionHistory = [];
+let failedAttempts = 0;
+
+function showMessage(message, elementId, timeout = 3000) {
+    const messageElement = document.getElementById(elementId);
+    messageElement.textContent = message;
+
+    setTimeout(() => {
+        messageElement.textContent = "";
+    }, timeout);
+}
 
 function login() {
-    const password = document.getElementById("password").value;
+    const password = document.getElementById("password").value.trim();
     const loginMessage = document.getElementById("login-message");
+
+    if (failedAttempts >= 3) {
+        showMessage("Muitas tentativas incorretas. Tente novamente mais tarde.", "login-message");
+        return;
+    }
 
     if (password === "1234") {
         toggleVisibility("login-screen", false);
         toggleVisibility("atm-screen", true);
-        loginMessage.textContent = "";
+        showMessage("", "login-message", 0);
     } else {
-        loginMessage.textContent = "Senha incorreta! Tente novamente.";
+        failedAttempts++;
+        showMessage(`Senha incorreta! Tentativa ${failedAttempts}/3.`, "login-message");
     }
 }
 
@@ -22,21 +37,20 @@ function logout() {
     toggleVisibility("transaction-history", false);
     toggleVisibility("login-screen", true);
     document.getElementById("password").value = "";
-    document.getElementById("message").textContent = "";
+    showMessage("", "message", 0);
 }
 
 function deposit() {
     const amountInput = document.getElementById("amount");
     const amount = parseFloat(amountInput.value);
-    const message = document.getElementById("message");
 
     if (amount > 0) {
         balance += amount;
         transactionHistory.push({ type: "deposit", value: amount });
-        message.textContent = `Depósito de R$ ${amount.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })} realizado com sucesso.`;
+        showMessage(`Depósito de ${formatCurrency(amount)} realizado com sucesso.`, "message");
         updateBalanceDisplay();
     } else {
-        message.textContent = "Digite um valor válido para depositar.";
+        showMessage("Digite um valor válido para depositar.", "message");
     }
     amountInput.value = "";
 }
@@ -44,16 +58,15 @@ function deposit() {
 function withdraw() {
     const amountInput = document.getElementById("amount");
     const amount = parseFloat(amountInput.value);
-    const message = document.getElementById("message");
 
     if (isNaN(amount) || amount <= 0) {
-        message.textContent = "Valor inválido. Tente novamente.";
+        showMessage("Valor inválido. Tente novamente.", "message");
     } else if (amount > balance) {
-        message.textContent = "Saldo insuficiente para realizar o saque.";
+        showMessage("Saldo insuficiente para realizar o saque.", "message");
     } else {
         balance -= amount;
         transactionHistory.push({ type: "withdraw", value: amount });
-        message.textContent = `Saque de R$ ${amount.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })} realizado com sucesso.`;
+        showMessage(`Saque de ${formatCurrency(amount)} realizado com sucesso.`, "message");
         updateBalanceDisplay();
     }
     amountInput.value = "";
@@ -63,25 +76,26 @@ function showHistory() {
     const historySection = document.getElementById("transaction-history");
     const historyList = document.getElementById("history-list");
 
-    historyList.innerHTML = "";
-    transactionHistory.forEach(transaction => {
-        const listItem = document.createElement("li");
+    historyList.innerHTML = transactionHistory
+        .map(transaction =>
+            `<li style="color:${transaction.type === 'deposit' ? 'green' : 'red'};">
+                ${transaction.type === 'deposit' ? 'Depósito' : 'Saque'}: ${formatCurrency(transaction.value)}
+            </li>`)
+        .join("");
 
-        if (transaction.type === "deposit") {
-            listItem.style.color = "green";
-            listItem.textContent = `Depósito: R$ ${transaction.value.toFixed(2)}`;
-        } else if (transaction.type === "withdraw") {
-            listItem.style.color = "red";
-            listItem.textContent = `Saque: R$ ${transaction.value.toFixed(2)}`;
-        }
-
-        historyList.appendChild(listItem);
-    });
-
-    const currentBalanceItem = document.createElement("li");
-    currentBalanceItem.style.color = "black";
-    currentBalanceItem.textContent = `Saldo Atual: R$ ${balance.toFixed(2)}`;
-    historyList.appendChild(currentBalanceItem);
-
+    historyList.innerHTML += `<li style="color:black;">Saldo Atual: ${formatCurrency(balance)}</li>`;
     historySection.style.display = "block";
+}
+
+function formatCurrency(value) {
+    return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+}
+
+function toggleVisibility(elementId, isVisible) {
+    document.getElementById(elementId).style.display = isVisible ? "block" : "none";
+}
+
+function updateBalanceDisplay() {
+    const balanceDisplay = document.getElementById("balance");
+    balanceDisplay.textContent = formatCurrency(balance);
 }
