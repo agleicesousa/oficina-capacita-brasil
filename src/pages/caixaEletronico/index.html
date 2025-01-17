@@ -28,13 +28,14 @@
         <h1>Caixa Eletrônico</h1>
 
         <section id="login-screen">
+            <label for="password">Senha:</label>
             <input type="password" id="password" placeholder="Digite sua senha">
             <button onclick="login()">Entrar</button>
-            <p id="login-message"></p>
-        </section>
+            <p id="login-message" role="alert"></p>
+        </section>        
 
         <section id="atm-screen" style="display: none;">
-            <div id="balance-display">Saldo: R$ <span id="balance">0.00</span></div>
+            <div id="balance-display">Saldo: <span id="balance">R$ 0,00</span></div>
             <input type="number" id="amount" placeholder="Digite o valor">
             
             <button onclick="deposit()">Depositar</button>

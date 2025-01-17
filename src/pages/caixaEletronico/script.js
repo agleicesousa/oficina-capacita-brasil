@@ -32,24 +32,13 @@ function deposit() {
 
     if (amount > 0) {
         balance += amount;
-        transactionHistory.push(`Depósito: R$ ${amount.toFixed(2)}`);
-        message.textContent = `Depósito de R$ ${amount.toLocaleString(
-            "pt-BR",
-            { style: "currency", currency: "BRL" }
-        )} realizado com sucesso.`;
+        transactionHistory.push({ type: "deposit", value: amount });
+        message.textContent = `Depósito de R$ ${amount.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })} realizado com sucesso.`;
         updateBalanceDisplay();
     } else {
-        message.textContent = "Valor inválido. Tente novamente.";
+        message.textContent = "Digite um valor válido para depositar.";
     }
     amountInput.value = "";
-}
-
-function toggleVisibility(elementId, isVisible) {
-    document.getElementById(elementId).style.display = isVisible ? "block" : "none";
-}
-
-function updateBalanceDisplay() {
-    document.getElementById("balance").textContent = balance.toFixed(2);
 }
 
 function withdraw() {
@@ -63,12 +52,36 @@ function withdraw() {
         message.textContent = "Saldo insuficiente para realizar o saque.";
     } else {
         balance -= amount;
-        transactionHistory.push(`Saque: R$ ${amount.toFixed(2)}`);
-        message.textContent = `Saque de R$ ${amount.toLocaleString(
-            "pt-BR",
-            { style: "currency", currency: "BRL" }
-        )} realizado com sucesso.`;
+        transactionHistory.push({ type: "withdraw", value: amount });
+        message.textContent = `Saque de R$ ${amount.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })} realizado com sucesso.`;
         updateBalanceDisplay();
     }
     amountInput.value = "";
+}
+
+function showHistory() {
+    const historySection = document.getElementById("transaction-history");
+    const historyList = document.getElementById("history-list");
+
+    historyList.innerHTML = "";
+    transactionHistory.forEach(transaction => {
+        const listItem = document.createElement("li");
+
+        if (transaction.type === "deposit") {
+            listItem.style.color = "green";
+            listItem.textContent = `Depósito: R$ ${transaction.value.toFixed(2)}`;
+        } else if (transaction.type === "withdraw") {
+            listItem.style.color = "red";
+            listItem.textContent = `Saque: R$ ${transaction.value.toFixed(2)}`;
+        }
+
+        historyList.appendChild(listItem);
+    });
+
+    const currentBalanceItem = document.createElement("li");
+    currentBalanceItem.style.color = "black";
+    currentBalanceItem.textContent = `Saldo Atual: R$ ${balance.toFixed(2)}`;
+    historyList.appendChild(currentBalanceItem);
+
+    historySection.style.display = "block";
 }
