@@ -18,81 +18,82 @@ function login() {
     const loginMessage = document.getElementById("login-message");
 
     if (failedAttempts >= 3) {
-        showMessage("Muitas tentativas incorretas. Tente novamente mais tarde.", "login-message");
+        loginMessage.textContent = "Limite de tentativas atingido!";
         return;
     }
 
-    if (password === "1234") {
-        toggleVisibility("login-screen", false);
-        toggleVisibility("atm-screen", true);
-        showMessage("", "login-message", 0);
+    if (password === "senha123") {
+        document.getElementById("login-screen").style.display = "none";
+        document.getElementById("atm-screen").style.display = "flex";
     } else {
         failedAttempts++;
-        showMessage(`Senha incorreta! Tentativa ${failedAttempts}/3.`, "login-message");
+        loginMessage.textContent = "Senha incorreta, tente novamente.";
+        showMessage("Senha incorreta, tente novamente.", "login-message");
     }
 }
 
-function logout() {
-    toggleVisibility("atm-screen", false);
-    toggleVisibility("transaction-history", false);
-    toggleVisibility("login-screen", true);
-    document.getElementById("password").value = "";
-    showMessage("", "message", 0);
+function formatInputValue(input) {
+    let value = input.value.replace(/\D/g, "");
+    value = (value / 100).toFixed(2);
+    value = value.replace(".", ",");
+
+    input.value = "R$ " + value.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 function deposit() {
-    const amountInput = document.getElementById("amount");
-    const amount = parseFloat(amountInput.value);
+    const amount = parseFloat(document.getElementById("amount").value.replace("R$ ", "").replace(".", "").replace(",", "."));
 
-    if (amount > 0) {
-        balance += amount;
-        transactionHistory.push({ type: "deposit", value: amount });
-        showMessage(`Depósito de ${formatCurrency(amount)} realizado com sucesso.`, "message");
-        updateBalanceDisplay();
-    } else {
-        showMessage("Digite um valor válido para depositar.", "message");
+    if (isNaN(amount) || amount <= 0) {
+        showMessage("Por favor, insira um valor válido!", "message");
+        return;
     }
-    amountInput.value = "";
+
+    balance += amount;
+    transactionHistory.push({ date: new Date().toLocaleString(), type: "Depósito", value: `R$ ${amount.toFixed(2)}` });
+    updateBalance();
+    updateTransactionHistory();
 }
 
 function withdraw() {
-    const amountInput = document.getElementById("amount");
-    const amount = parseFloat(amountInput.value);
+    const amount = parseFloat(document.getElementById("amount").value.replace("R$ ", "").replace(".", "").replace(",", "."));
 
     if (isNaN(amount) || amount <= 0) {
-        showMessage("Valor inválido. Tente novamente.", "message");
-    } else if (amount > balance) {
-        showMessage("Saldo insuficiente para realizar o saque.", "message");
-    } else {
-        balance -= amount;
-        transactionHistory.push({ type: "withdraw", value: amount });
-        showMessage(`Saque de ${formatCurrency(amount)} realizado com sucesso.`, "message");
-        updateBalanceDisplay();
+        showMessage("Por favor, insira um valor válido!", "message");
+        return;
     }
-    amountInput.value = "";
+
+    if (amount > balance) {
+        showMessage("Saldo insuficiente!", "message");
+        return;
+    }
+
+    balance -= amount;
+    transactionHistory.push({ date: new Date().toLocaleString(), type: "Saque", value: `R$ ${amount.toFixed(2)}` });
+    updateBalance();
+    updateTransactionHistory();
 }
 
-function showHistory() {
-    const historySection = document.getElementById("transaction-history");
+function logout() {
+    document.getElementById("login-screen").style.display = "flex";
+    document.getElementById("atm-screen").style.display = "none";
+    failedAttempts = 0;
+}
+
+function updateBalance() {
+    document.getElementById("balance").textContent = `R$ ${balance.toFixed(2)}`;
+}
+
+function updateTransactionHistory() {
     const historyList = document.getElementById("history-list");
+    historyList.innerHTML = '';
 
-    historyList.innerHTML = transactionHistory
-        .map(transaction =>
-            `<li style="color:${transaction.type === 'deposit' ? 'green' : 'red'};">
-                ${transaction.type === 'deposit' ? 'Depósito' : 'Saque'}: ${formatCurrency(transaction.value)}
-            </li>`)
-        .join("");
-}
-
-function formatCurrency(value) {
-    return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-}
-
-function toggleVisibility(elementId, isVisible) {
-    document.getElementById(elementId).style.display = isVisible ? "block" : "none";
-}
-
-function updateBalanceDisplay() {
-    const balanceDisplay = document.getElementById("balance");
-    balanceDisplay.textContent = formatCurrency(balance);
+    transactionHistory.forEach(transaction => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${transaction.date}</td>
+            <td>${transaction.type}</td>
+            <td>${transaction.value}</td>
+        `;
+        historyList.appendChild(row);
+    });
 }
