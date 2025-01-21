@@ -1,15 +1,8 @@
 {
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/index.html"
-      }
-    ],
-    "build": {
-      "env": {
-        "NODE_ENV": "production"
-      },
-      "outputDirectory": "."
-    }
-  }
-  
+        {
+            "src": "/(.*)",
+            "dest": "/index.html"
+        }
+    ]
+}
