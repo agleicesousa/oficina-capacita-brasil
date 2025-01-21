@@ -4,11 +4,5 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "static": {
-    "directory": "public",
-    "headers": {
-      "Cache-Control": "public, max-age=0, must-revalidate"
-    }
-  }
+  ]
 }
