@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Desafio final do módulo inicial do programa Capacita Brasil",
   "scripts": {
-    "build-css": "sass src/:src/ --no-source-map",
+    "build-css": "sass src/:public/ --no-source-map",
     "watch-css": "npm run build-css && sass --watch src/:src/",
     "build": "npm run build-css"
 },
