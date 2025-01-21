@@ -26,7 +26,6 @@ jspm_packages/
 # Compiled output
 /dist
 /build
-/public
 
 # IDE specific files
 .vscode/
