@@ -1,8 +1,14 @@
 {
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/index.html"
-        }
-    ]
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "static": {
+    "directory": "public",
+    "headers": {
+      "Cache-Control": "public, max-age=0, must-revalidate"
+    }
+  }
 }
