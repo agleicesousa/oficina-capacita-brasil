@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Desafio final do módulo inicial do programa Capacita Brasil",
   "scripts": {
-    "build-css": "npx sass public/pages/**/style.scss:public/pages/**/style.css && npx sass public/style.scss:public/style.css",
-    "watch-css": "npx sass --watch public/pages/**/style.scss:public/pages/**/style.css public/style.scss:public/style.css",
+    "build-css": "npx sass public/pages/caixaEletronico/style.scss:public/pages/caixaEletronico/style.css && npx sass public/pages/gerenciarTarefas/style.scss:public/pages/gerenciarTarefas/style.css && npx sass public/pages/jogoDoAdivinha/style.scss:public/pages/jogoDoAdivinha/style.css && npx sass public/pages/mudarCores/style.scss:public/pages/mudarCores/style.css && npx sass public/style.scss:public/style.css",
+    "watch-css": "npx sass --watch public/pages/caixaEletronico/style.scss:public/pages/caixaEletronico/style.css public/pages/gerenciarTarefas/style.scss:public/pages/gerenciarTarefas/style.css public/pages/jogoDoAdivinha/style.scss:public/pages/jogoDoAdivinha/style.css public/pages/mudarCores/style.scss:public/pages/mudarCores/style.css public/style.scss:public/style.css", 
     "build": "npm run build-css"
   },
   "author": "Agleice Sousa",
