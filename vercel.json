@@ -9,10 +9,6 @@
       "dest": "/public/pages/$1"
     },
     {
-      "src": "/style.css",
-      "dest": "/style.css"
-    },
-    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
