@@ -28,7 +28,6 @@ package-lock.json
 # Compiled output
 /dist
 /build
-/public
 
 # IDE specific files
 .vscode/
