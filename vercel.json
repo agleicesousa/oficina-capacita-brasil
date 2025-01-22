@@ -19,7 +19,7 @@
       "src": "./*",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "/public"
+        "distDir": "public"
       }
     }
   ]
