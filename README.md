@@ -39,7 +39,7 @@ Projeto desenvolvido como parte do desafio final do módulo inicial do programa 
    Execute o comando abaixo para compilar SCSS em CSS e manter a compilação ativa para futuras alterações.
 
    ```bash
-   sass --watch src/scss:src/css
+   npm run build
    ```
 
 5. **Abra o projeto em um navegador:**
