@@ -11,6 +11,10 @@
     {
       "src": "/(.*)",
       "dest": "/public/$1"
+    },
+    {
+      "buildComand": "npm run build",
+      "outputDirectory": "public"
     }
   ]
 }
