@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "routes": [
     {
       "src": "/assets/(.*)",
@@ -11,10 +12,16 @@
     {
       "src": "/(.*)",
       "dest": "/public/$1"
-    },
+    }
+  ],
+  "builds": [
     {
-      "buildCommand": "npm run build",
-      "outputDirectory": "public"
+      "src": "./*",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "public"
+      }
     }
   ]
 }
+
