@@ -10,6 +10,7 @@ yarn-error.log*
 
 # Dependency directories
 jspm_packages/
+package-lock.json
 
 # Optional npm cache directory
 .npm
@@ -22,6 +23,7 @@ jspm_packages/
 
 # Generated CSS files
 *.css.map
+*.css
 
 # Compiled output
 /dist
