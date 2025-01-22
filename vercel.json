@@ -13,7 +13,7 @@
       "dest": "/public/$1"
     },
     {
-      "buildComand": "npm run build",
+      "buildCommand": "npm run build",
       "outputDirectory": "public"
     }
   ]
